@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demiröz Teknoloji</title>
+    
+    <!-- FAVICON (Favicon.png aynı klasörde olmalı) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome İkonları -->
@@ -62,7 +66,6 @@
             color: var(--primary-color);
             text-decoration: none;
             letter-spacing: -0.5px;
-            cursor: pointer;
         }
 
         .logo span {
@@ -176,6 +179,14 @@
             margin-bottom: 1.5rem;
         }
 
+        /* İleride Logo Görseli Eklendiğinde Kullanılacak CSS */
+        .card-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+        }
+
         .card h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
@@ -201,39 +212,95 @@
             text-decoration: underline;
         }
 
-        /* İLETİŞİM */
+        /* İLETİŞİM FORMU BÖLÜMÜ */
         .contact {
             background-color: var(--primary-color);
             color: var(--white);
             padding: 5rem 5%;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .contact h2 {
-            margin-bottom: 1rem;
+        .contact-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact p {
+        .contact-container p {
             color: #94a3b8;
             margin-bottom: 2rem;
         }
 
-        .email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--white);
-            color: var(--primary-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 5px;
-            text-decoration: none;
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
             font-weight: 600;
+        }
+
+        .form-control {
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #334155;
+            background-color: #1e293b;
+            color: var(--white);
+            font-size: 1rem;
+            outline: none;
             transition: var(--transition);
         }
 
-        .email-btn:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-status.success {
+            color: #4ade80;
+            display: block;
+        }
+
+        .form-status.error {
+            color: #f87171;
+            display: block;
+        }
+
+        .direct-email {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .direct-email a {
+            color: var(--secondary-color);
+            text-decoration: none;
         }
 
         footer {
@@ -244,7 +311,7 @@
             font-size: 0.9rem;
         }
 
-        /* MODAL (AÇILIR PENCERE) */
+        /* MODAL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -332,6 +399,8 @@
             <!-- TURAN İHA -->
             <div class="card">
                 <div>
+                    <!-- İleride Logo eklemek istersen alttaki img satırını kullanabilirsin -->
+                    <!-- <img src="turan-logo.png" alt="Turan Logo" class="card-logo"> -->
                     <i class="fa-solid fa-plane-up card-icon"></i>
                     <h3>Turan (İHA)</h3>
                     <p>İnsansız Hava Araçları (İHA) tasarımı ve üretimi. Gelişmiş uçuş kontrolcüler ve telemetri sistemleri ile otonom görev yapabilen hava araçları geliştiriyoruz.</p>
@@ -342,6 +411,7 @@
             <!-- AGROTECH -->
             <div class="card">
                 <div>
+                    <!-- <img src="agrotech-logo.png" alt="Agrotech Logo" class="card-logo"> -->
                     <i class="fa-solid fa-leaf card-icon"></i>
                     <h3>Agrotech</h3>
                     <p>Geleceğin tarımını şekillendiriyoruz. Teknoloji ile doğayı bir araya getirerek verimliliği maksimuma çıkaran sürdürülebilir tarım çözümleri üretiyoruz.</p>
@@ -353,8 +423,9 @@
             <!-- HERA PROJESİ -->
             <div class="card">
                 <div>
+                    <!-- <img src="hera-logo.png" alt="HERA Logo" class="card-logo"> -->
                     <i class="fa-solid fa-brain card-icon"></i>
-                    <h3>HERA Projesi</h3>
+                    <h3>🧠 HERA Projesi</h3>
                     <p>Yapay zeka tabanlı ileri düzey proje çalışmamız. Algoritmalar, veri işleme ve makine öğrenmesi süreçleriyle geleceğin otonom karar destek mekanizmalarını tasarlıyoruz.</p>
                 </div>
                 <button type="button" class="btn show-modal" data-title="🧠 HERA Projesi" data-desc="DAISY altyapısını kullanan HERA projesi, yapay zeka ve derin öğrenme algoritmaları üzerine kurgulanmış özel bir araştırma-geliştirme çalışmasıdır. Sistem mimarisi ve yerel LLM entegrasyonları ile yüksek başarım hedefliyoruz.">Detayları Gör</button>
@@ -363,6 +434,7 @@
             <!-- FRC -->
             <div class="card">
                 <div>
+                    <!-- <img src="frc-logo.png" alt="FRC Logo" class="card-logo"> -->
                     <i class="fa-solid fa-robot card-icon"></i>
                     <h3>FRC (Robotics)</h3>
                     <p>FIRST Robotics Competition standartlarında, endüstriyel boyutta otonom ve manuel kontrollü robotlar tasarlıyor, kodluyor ve yarışmalara hazırlanıyoruz.</p>
@@ -373,6 +445,7 @@
             <!-- İSG -->
             <div class="card">
                 <div>
+                    <!-- <img src="isg-logo.png" alt="İSG Logo" class="card-logo"> -->
                     <i class="fa-solid fa-hard-hat card-icon"></i>
                     <h3>İSG</h3>
                     <p>Atölye ve laboratuvar ortamlarında İş Sağlığı ve Güvenliği prosedürlerini en üst düzeyde tutmak için geliştirdiğimiz teknolojik denetim ve uyarı sistemleri.</p>
@@ -383,13 +456,41 @@
         </div>
     </section>
 
-    <!-- İLETİŞİM -->
+    <!-- OTOMATİK İLETİŞİM FORMU -->
     <section id="iletisim" class="contact">
-        <h2>Bize Ulaşın</h2>
-        <p>Projelerimiz, iş birliği ve bilgi talepleriniz için e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.</p>
-        <a href="mailto:info@demirozflagrotech.com" class="email-btn" id="emailLink">
-            <i class="fa-solid fa-envelope"></i> E-Posta Gönder
-        </a>
+        <div class="contact-container">
+            <h2>Bize Ulaşın</h2>
+            <p>Formu doldurarak mesajınızı doğrudan ekibimize iletebilirsiniz.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <!-- Web3Forms Access Key (web3forms.com adresinden alıp buraya yapıştırabilirsin) -->
+                <input type="hidden" name="access_key" value="c85fb52c-44c2-47e0-85f7-a85c8f29eabd">
+                <input type="hidden" name="subject" value="Demiröz Teknoloji Web Sitemizden Yeni Mesaj Var!">
+
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Örn: Ahmet Yılmaz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Posta Adresiniz</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Örn: ahmet@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn">Mesajı Gönder</button>
+                
+                <div class="form-status" id="formStatus"></div>
+            </form>
+
+            <div class="direct-email">
+                Veya doğrudan e-posta atabilirsiniz: <a href="mailto:turaniha26@gmail.com">turaniha26@gmail.com</a>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -432,7 +533,7 @@
             }
         });
 
-        // /# Sıçrama (Jumping) Engelleyici & Yumuşak Kaydırma
+        // Smooth Scroll (Sıçrama Engelleyici)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -445,6 +546,51 @@
                         });
                     }
                 }
+            });
+        });
+
+        // Otomatik E-Posta Gönderme Formu JS
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Gönderiliyor...';
+            formStatus.className = 'form-status';
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
+                    formStatus.classList.add('success');
+                    form.reset();
+                } else {
+                    formStatus.textContent = res.message || 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                    formStatus.classList.add('error');
+                }
+            })
+            .catch(error => {
+                formStatus.textContent = 'Bağlantı hatası oluştu.';
+                formStatus.classList.add('error');
+            })
+            .then(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Mesajı Gönder';
             });
         });
     </script>
