@@ -3,488 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demiröz Teknoloji | İnsansız Hava Araçları & Ar-Ge</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Demiröz Teknoloji</title>
+    <!-- Google Fonts: Inter (Sade ve Profesyonel bir font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- TEMEL AYARLAR --- */
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(21, 30, 49, 0.75);
-            --border-color: rgba(56, 189, 248, 0.15);
-            --primary: #38bdf8;
-            --primary-glow: rgba(56, 189, 248, 0.25);
-            --accent: #2563eb;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --max-width: 1200px;
+            --primary-color: #0f172a; /* Koyu Lacivert/Siyah */
+            --accent-color: #2563eb; /* Teknolojik Mavi */
+            --bg-color: #f8fafc; /* Çok açık gri (beyaza yakın) */
+            --text-color: #334155; /* Okunabilir koyu gri */
+            --card-bg: #ffffff;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
-            background-attachment: fixed;
         }
 
-        /* Container */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header / Navbar */
+        /* --- NAVBAR (ÜST MENÜ) --- */
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
-            background: rgba(11, 15, 25, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
-        .nav-wrapper {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 72px;
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--text-main);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             letter-spacing: -0.5px;
         }
 
         .logo span {
-            color: var(--primary);
-        }
-
-        .logo-badge {
-            font-size: 0.7rem;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            border: 1px solid var(--border-color);
-            padding: 2px 8px;
-            border-radius: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
+            color: var(--accent-color);
         }
 
         .nav-links {
-            display: flex;
-            gap: 28px;
             list-style: none;
+            display: flex;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent-color);
+        }
+
+        /* --- HERO (ANA GİRİŞ BÖLÜMÜ) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            color: #475569;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 14px 32px;
+            background-color: var(--accent-color);
+            color: white;
             text-decoration: none;
-            transition: all 0.25s ease;
-            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--primary));
-            color: #fff;
-            box-shadow: 0 4px 20px var(--primary-glow);
-        }
-
-        .btn-primary:hover {
+        .btn:hover {
+            background-color: #1d4ed8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
+        /* --- BÖLÜM BAŞLIKLARI --- */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
+        .section-title {
             text-align: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
             position: relative;
         }
 
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            border-radius: 20px;
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px solid var(--border-color);
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 24px;
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 24px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 680px;
-            margin: 0 auto 36px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-        }
-
-        /* Stats Bar */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 60px;
-            padding: 24px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            backdrop-filter: blur(12px);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Sections General */
-        section {
-            padding: 90px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* Feature Cards */
-        .grid-3 {
+        /* --- KULÜPLER / PROJELER (GRID) --- */
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            gap: 30px;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(12px);
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(56, 189, 248, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
         .card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 15px;
+            margin-bottom: 25px;
+            color: #64748b;
         }
 
-        /* About Section */
-        .about-box {
-            background: linear-gradient(135deg, rgba(21, 30, 49, 0.9), rgba(15, 23, 42, 0.9));
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 48px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .card-link {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
             align-items: center;
+            transition: color 0.3s ease;
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.3;
+        .card-link:hover {
+            color: #1e3a8a;
         }
 
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 0.98rem;
-        }
-
-        .tech-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .tech-list li {
-            font-size: 0.9rem;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tech-list li::before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Footer */
+        /* --- FOOTER (İLETİŞİM) --- */
         footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px 30px;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            background: rgba(11, 15, 25, 0.9);
         }
 
-        /* Responsive */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 10px 20px;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* --- MOBİL UYUMLULUK --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .about-box {
-                grid-template-columns: 1fr;
-                padding: 28px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .tech-list {
-                grid-template-columns: 1fr;
-            }
+            .hero-content h1 { font-size: 36px; }
+            .nav-links { display: none; /* Mobil menü şimdilik gizli, sade tutuldu */ }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="logo">
-                DEMİRÖZ <span>TEKNOLOJİ</span>
-                <span class="logo-badge">Ar-Ge Kulübü</span>
-            </a>
+    <!-- ÜST MENÜ -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Demiröz <span>Teknoloji</span></a>
             <ul class="nav-links">
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#faaliyetler">Faaliyet Alanları</a></li>
-                <li><a href="#projeler">Projelerimiz</a></li>
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#clubs">Kulüpler & Projeler</a></li>
+                <li><a href="#contact">İletişim</a></li>
             </ul>
-            <a href="#iletisim" class="btn btn-primary">İletişim</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="tag">
-                <span>⚡</span> Otonom Sistemler & Yerli Mühendislik
+    <!-- ANA GİRİŞ -->
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h1>Geleceği Kodluyoruz</h1>
+            <p>Hacı Şöhret Demiröz Fen Lisesi bünyesinde teknoloji, inovasyon ve mühendislik alanlarında sınırları zorlayan projeler geliştiriyoruz.</p>
+            <a href="#clubs" class="btn">Çalışmalarımızı İncele</a>
+        </div>
+    </div>
+
+    <!-- KULÜPLER VE PROJELER -->
+    <section id="clubs">
+        <h2 class="section-title">Kulüpler & Projeler</h2>
+        <div class="projects-grid">
+            
+            <!-- Agrotech -->
+            <div class="card">
+                <h3>🌱 Agrotech</h3>
+                <p>Tarım teknolojileri, otonom sistemler ve sürdürülebilir tarım çözümleri üzerine geliştirdiğimiz donanım ve yazılım odaklı inovasyon kulübü.</p>
+                <a href="https://demirozflagrotech.com" target="_blank" class="card-link">demirozflagrotech.com'a Git →</a>
             </div>
-            <h1>Geleceğin İnsansız Hava Araçlarını<br>Kendi Atölyemizde Geliştiriyoruz</h1>
-            <p>
-                Sabit kanatlı sistemlerden otonom dronlara; tasarımdan imalata, yazılımdan test uçuşlarına kadar tüm süreçleri kendi imkânlarımızla yürütüyoruz.
+
+            <!-- Turan -->
+            <div class="card">
+                <h3>✈️ Turan</h3>
+                <p>İnsansız Hava Araçları (İHA) sistemleri, aviyonik yazılımlar ve uçuş dinamikleri üzerine araştırmalar yürüten havacılık ve uzay kulübümüz.</p>
+                <a href="#" class="card-link">Detayları İncele →</a>
+            </div>
+
+            <!-- FRC -->
+            <div class="card">
+                <h3>🤖 FRC (First Robotics Competition)</h3>
+                <p>Uluslararası robotik turnuvalarında okulumuzu temsil eden, mekanik tasarım, elektronik ve yazılımı bir araya getiren robotik takımımız.</p>
+                <a href="#" class="card-link">Takımı İncele →</a>
+            </div>
+
+            <!-- HERA [DAISY] Projesi -->
+            <div class="card">
+                <h3>🧠 HERA [DAISY] Projesi</h3>
+                <p>Yapay zeka (AI) ve akıllı sistemler odaklı, makine öğrenmesi algoritmalarını donanımla birleştirerek geliştirdiğimiz amiral gemisi projemiz.</p>
+                <a href="#" class="card-link">Projeye Göz At →</a>
+            </div>
+
+            <!-- ISG -->
+            <div class="card">
+                <h3>🛡️ ISG</h3>
+                <p>Atölye ortamında, teknolojik altyapı kurulumlarında ve yazılım süreçlerinde güvenlik standartlarını, bilgi güvenliğini ve sağlığı denetleyen birimimiz.</p>
+                <a href="#" class="card-link">Standartlarımızı Gör →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / İLETİŞİM -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Bizimle İletişime Geçin</h2>
+            <p style="color: #94a3b8; margin-bottom: 20px; max-width: 500px;">
+                Projelerimiz hakkında bilgi almak, sponsorluk görüşmeleri veya okulumuzla iletişime geçmek için aşağıdaki kanalları kullanabilirsiniz.
             </p>
-            <div class="hero-cta">
-                <a href="#projeler" class="btn btn-primary">Projelerimizi İncele</a>
-                <a href="#hakkimizda" class="btn btn-secondary">Atölye Çalışmaları</a>
-            </div>
-
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">TEKNOFEST</div>
-                    <div class="stat-label">Saha Tecrübesi</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">%100</div>
-                    <div class="stat-label">Yerli İmalat & Tasarım</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Otonom</div>
-                    <div class="stat-label">Yazılım & Seyir Sistemleri</div>
-                </div>
+            <div class="social-links">
+                <!-- SOSYAL MEDYA LİNKLERİ BURAYA GELECEK -->
+                <a href="#">Instagram</a>
+                <a href="#">E-Posta</a>
+                <a href="#">Discord</a>
+                <a href="#">GitHub</a>
             </div>
         </div>
-    </section>
-
-    <!-- Hakkımızda -->
-    <section id="hakkimizda">
-        <div class="container">
-            <div class="about-box">
-                <div class="about-text">
-                    <h3>Atölyeden Gökyüzüne Uzanan Mühendislik Disiplini</h3>
-                    <p>
-                        Kulüp olarak temel odağımız; farklı yapı ve teknolojilerde insansız hava araçları ve otonom sistemler üretmektir.
-                    </p>
-                    <p>
-                        Lisemizdeki atölyemizde yürüttüğümüz çalışmalarla; teorik mühendislik bilgisini pratik saha tecrübesiyle birleştiriyor, düzenli olarak katıldığımız yarışmalarla projelerimizi geliştiriyoruz.
-                    </p>
-                    <ul class="tech-list">
-                        <li>Kompozit & Gövde Tasarımı</li>
-                        <li>Otonom Uçuş Algoritmaları</li>
-                        <li>Yer Kontrol İstasyonları</li>
-                        <li>3D İmalat & Hızlı Prototipleme</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="card" style="border-color: rgba(56, 189, 248, 0.3);">
-                        <div class="card-icon">✈️</div>
-                        <h3>Misyonumuz</h3>
-                        <p>Genç yaşta havacılık, uzay ve otonom sistemler alanında nitelikli projeler üreterek, yarışma sahalarında ve teknoloji ekosisteminde sürdürülebilir başarı elde etmek.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Faaliyetler -->
-    <section id="faaliyetler">
-        <div class="container">
-            <div class="section-header">
-                <h2>Faaliyet ve Odak Alanlarımız</h2>
-                <p>Teknoloji takımımızın atölyemizde yürüttüğü ana çalışma disiplinleri</p>
-            </div>
-
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🛩️</div>
-                    <h3>Sabit Kanat İHA</h3>
-                    <p>Aerodinamik aerofoil hesaplamaları, payload taşıma kapasiteli gövde tasarımları ve uzun menzilli uçuş sistemleri geliştirme.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">🛸</div>
-                    <h3>Otonom Dron Teknolojileri</h3>
-                    <p>Çok motorlu Dron platformları için otonom görev icra edebilen uçuş kontrol yazılımları ve görüntü işleme entegrasyonları.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">💻</div>
-                    <h3>Gömülü Yazılım & Ar-Ge</h3>
-                    <p>Uçuş bilgisayarları, sensör füzyonu, telemetry haberleşme protokolleri ve yer kontrol arayüzlerinin geliştirilmesi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="iletisim">
-        <div class="container">
-            <p>© 2026 Demiröz Teknoloji / Ar-Ge Kulübü. Tüm hakları saklıdır.</p>
+        <div class="copyright">
+            &copy; 2026 Demiröz Teknoloji. Tüm hakları saklıdır.
         </div>
     </footer>
 
+    <!-- BASİT JAVASCRIPT (Sadece header gölgesi için ekstra pürüzsüzlük) -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
 </body>
 </html>
