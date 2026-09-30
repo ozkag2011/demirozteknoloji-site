@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demiröz Teknoloji</title>
-    <!-- Modern ve sade bir font olan Inter'i Google Fonts'tan çekiyoruz -->
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- İkonlar için FontAwesome -->
+    <!-- FontAwesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* TEMEL AYARLAR */
         :root {
-            --primary-color: #0f172a; /* Koyu Lacivert / Kurumsal */
-            --secondary-color: #3b82f6; /* Modern Mavi */
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
             --bg-light: #f8fafc;
             --text-dark: #1e293b;
             --text-light: #64748b;
@@ -38,7 +37,7 @@
             line-height: 1.6;
         }
 
-        /* NAVBAR (MENÜ) */
+        /* NAVBAR */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -63,6 +62,7 @@
             color: var(--primary-color);
             text-decoration: none;
             letter-spacing: -0.5px;
+            cursor: pointer;
         }
 
         .logo span {
@@ -86,7 +86,7 @@
             color: var(--secondary-color);
         }
 
-        /* HERO BÖLÜMÜ (ANA EKRAN) */
+        /* HERO BÖLÜMÜ */
         .hero {
             height: 100vh;
             display: flex;
@@ -131,7 +131,7 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
-        /* KULÜPLER VE PROJELER BÖLÜMÜ */
+        /* PROJELER & KULÜPLER */
         .projects {
             padding: 5rem 5%;
             max-width: 1200px;
@@ -159,6 +159,9 @@
             transition: var(--transition);
             border: 1px solid #e2e8f0;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -198,7 +201,7 @@
             text-decoration: underline;
         }
 
-        /* İLETİŞİM BÖLÜMÜ */
+        /* İLETİŞİM */
         .contact {
             background-color: var(--primary-color);
             color: var(--white);
@@ -206,25 +209,31 @@
             text-align: center;
         }
 
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+
         .contact p {
             color: #94a3b8;
             margin-bottom: 2rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
             transition: var(--transition);
         }
 
-        .social-links a:hover {
-            color: var(--secondary-color);
+        .email-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
         }
 
         footer {
@@ -235,7 +244,7 @@
             font-size: 0.9rem;
         }
 
-        /* MODAL (AÇILIR PENCERE) CSS */
+        /* MODAL (AÇILIR PENCERE) */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -286,10 +295,9 @@
             color: var(--primary-color);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Mobil menü basit tutuldu */
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -298,7 +306,7 @@
     <!-- MENÜ -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Demiröz <span>Teknoloji</span></a>
+            <a href="#home" class="logo">Demiröz <span>Teknoloji</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Ana Sayfa</a></li>
                 <li><a href="#projeler">Projeler & Kulüpler</a></li>
@@ -323,65 +331,72 @@
             
             <!-- TURAN İHA -->
             <div class="card">
-                <i class="fa-solid fa-plane-up card-icon"></i>
-                <h3>Turan (İHA)</h3>
-                <p>İnsansız Hava Araçları (İHA) tasarımı ve üretimi. Gelişmiş uçuş kontrolcüler ve telemetri sistemleri ile otonom görev yapabilen hava araçları geliştiriyoruz.</p>
-                <button class="btn show-modal" data-title="Turan İHA Projesi" data-desc="Turan ekibi olarak, gövde tasarımından otonom uçuş yazılımlarına kadar tamamen kendi ürettiğimiz İnsansız Hava Araçları üzerinde çalışıyoruz. Amacımız, havacılık teknolojilerinde yenilikçi uçuş dinamikleri ve stabilite sağlamaktır.">Detayları Gör</button>
+                <div>
+                    <i class="fa-solid fa-plane-up card-icon"></i>
+                    <h3>Turan (İHA)</h3>
+                    <p>İnsansız Hava Araçları (İHA) tasarımı ve üretimi. Gelişmiş uçuş kontrolcüler ve telemetri sistemleri ile otonom görev yapabilen hava araçları geliştiriyoruz.</p>
+                </div>
+                <button type="button" class="btn show-modal" data-title="Turan İHA Projesi" data-desc="Turan ekibi olarak, gövde tasarımından otonom uçuş yazılımlarına kadar tamamen kendi ürettiğimiz İnsansız Hava Araçları üzerinde çalışıyoruz. Amacımız, havacılık teknolojilerinde yenilikçi uçuş dinamikleri ve stabilite sağlamaktır.">Detayları Gör</button>
             </div>
 
             <!-- AGROTECH -->
             <div class="card">
-                <i class="fa-solid fa-leaf card-icon"></i>
-                <h3>Agrotech</h3>
-                <p>Geleceğin tarımını şekillendiriyoruz. Teknoloji ile doğayı bir araya getirerek verimliliği maksimuma çıkaran sürdürülebilir tarım çözümleri üretiyoruz.</p>
-                <a href="https://demirozflagrotech.com" target="_blank" class="card-link"><i class="fa-solid fa-link"></i> demirozflagrotech.com</a><br>
-                <button class="btn show-modal" data-title="Agrotech" data-desc="Tarımda teknolojik devrim yaratmayı hedefleyen projeler geliştiriyoruz. Daha az kaynakla daha verimli üretim yapmak için sensör teknolojileri, veri analizi ve otomasyon sistemlerini entegre ediyoruz. Web sitemiz üzerinden projelerimizi takip edebilirsiniz.">Detayları Gör</button>
+                <div>
+                    <i class="fa-solid fa-leaf card-icon"></i>
+                    <h3>Agrotech</h3>
+                    <p>Geleceğin tarımını şekillendiriyoruz. Teknoloji ile doğayı bir araya getirerek verimliliği maksimuma çıkaran sürdürülebilir tarım çözümleri üretiyoruz.</p>
+                    <a href="https://demirozflagrotech.com" target="_blank" rel="noopener noreferrer" class="card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> demirozflagrotech.com</a>
+                </div>
+                <button type="button" class="btn show-modal" data-title="Agrotech" data-desc="Tarımda teknolojik devrim yaratmayı hedefleyen projeler geliştiriyoruz. Daha az kaynakla daha verimli üretim yapmak için sensör teknolojileri, veri analizi ve otomasyon sistemlerini entegre ediyoruz. Web sitemiz üzerinden projelerimizi takip edebilirsiniz.">Detayları Gör</button>
             </div>
 
-            <!-- HERA [DAISY] -->
+            <!-- HERA PROJESİ -->
             <div class="card">
-                <i class="fa-solid fa-microchip card-icon"></i>
-                <h3>HERA [DAISY] Projesi</h3>
-                <p>Yapay zeka tabanlı ileri düzey proje çalışmamız. Algoritmalar, veri işleme ve makine öğrenmesi süreçleriyle geleceğin otonom karar destek mekanizmalarını tasarlıyoruz.</p>
-                <button class="btn show-modal" data-title="HERA [DAISY] Projesi" data-desc="DAISY, yapay zeka ve derin öğrenme algoritmaları üzerine kurgulanmış özel bir araştırma-geliştirme projesidir. Sistem mimarisi ve yerel LLM entegrasyonları ile veri işleme kapasitesini artırmayı hedefliyoruz.">Detayları Gör</button>
+                <div>
+                    <i class="fa-solid fa-brain card-icon"></i>
+                    <h3>🧠 HERA Projesi</h3>
+                    <p>Yapay zeka tabanlı ileri düzey proje çalışmamız. Algoritmalar, veri işleme ve makine öğrenmesi süreçleriyle geleceğin otonom karar destek mekanizmalarını tasarlıyoruz.</p>
+                </div>
+                <button type="button" class="btn show-modal" data-title="🧠 HERA Projesi" data-desc="DAISY altyapısını kullanan HERA projesi, yapay zeka ve derin öğrenme algoritmaları üzerine kurgulanmış özel bir araştırma-geliştirme çalışmasıdır. Sistem mimarisi ve yerel LLM entegrasyonları ile yüksek başarım hedefliyoruz.">Detayları Gör</button>
             </div>
 
             <!-- FRC -->
             <div class="card">
-                <i class="fa-solid fa-robot card-icon"></i>
-                <h3>FRC (Robotics)</h3>
-                <p>FIRST Robotics Competition standartlarında, endüstriyel boyutta otonom ve manuel kontrollü robotlar tasarlıyor, kodluyor ve yarışmalara hazırlanıyoruz.</p>
-                <button class="btn show-modal" data-title="FRC Robotik Kulübü" data-desc="Mekanik tasarım, elektronik dizilim ve yazılım alanlarında multidisipliner bir yaklaşımla çalışıyoruz. FRC yarışmaları için her yıl yeni bir görev tanımına uygun, yüksek performanslı robotlar üretiyoruz.">Detayları Gör</button>
+                <div>
+                    <i class="fa-solid fa-robot card-icon"></i>
+                    <h3>FRC (Robotics)</h3>
+                    <p>FIRST Robotics Competition standartlarında, endüstriyel boyutta otonom ve manuel kontrollü robotlar tasarlıyor, kodluyor ve yarışmalara hazırlanıyoruz.</p>
+                </div>
+                <button type="button" class="btn show-modal" data-title="FRC Robotik Kulübü" data-desc="Mekanik tasarım, elektronik dizilim ve yazılım alanlarında multidisipliner bir yaklaşımla çalışıyoruz. FRC yarışmaları için her yıl yeni bir görev tanımına uygun, yüksek performanslı robotlar üretiyoruz.">Detayları Gör</button>
             </div>
 
             <!-- İSG -->
             <div class="card">
-                <i class="fa-solid fa-hard-hat card-icon"></i>
-                <h3>İSG</h3>
-                <p>Atölye ve laboratuvar ortamlarında İş Sağlığı ve Güvenliği prosedürlerini en üst düzeyde tutmak için geliştirdiğimiz teknolojik denetim ve uyarı sistemleri.</p>
-                <button class="btn show-modal" data-title="İş Sağlığı ve Güvenliği (İSG)" data-desc="Geliştirdiğimiz donanımlar üzerinde çalışırken, insan faktörünü korumak en büyük önceliğimizdir. Güvenli çalışma ortamı oluşturmak için dijital izleme ve risk yönetim protokolleri uyguluyoruz.">Detayları Gör</button>
+                <div>
+                    <i class="fa-solid fa-hard-hat card-icon"></i>
+                    <h3>İSG</h3>
+                    <p>Atölye ve laboratuvar ortamlarında İş Sağlığı ve Güvenliği prosedürlerini en üst düzeyde tutmak için geliştirdiğimiz teknolojik denetim ve uyarı sistemleri.</p>
+                </div>
+                <button type="button" class="btn show-modal" data-title="İş Sağlığı ve Güvenliği (İSG)" data-desc="Geliştirdiğimiz donanımlar üzerinde çalışırken, insan faktörünü korumak en büyük önceliğimizdir. Güvenli çalışma ortamı oluşturmak için dijital izleme ve risk yönetim protokolleri uyguluyoruz.">Detayları Gör</button>
             </div>
 
         </div>
     </section>
 
-    <!-- İLETİŞİM (ŞU ANLIK YER TUTUCU, SONRA BİLGİLER GİRİLECEK) -->
+    <!-- İLETİŞİM -->
     <section id="iletisim" class="contact">
-        <h2 style="margin-bottom: 1rem;">Bize Ulaşın</h2>
-        <p>İletişim bilgilerimiz ve sosyal medya hesaplarımız yakında eklenecektir.</p>
-        <div class="social-links">
-            <!-- Sosyal Medya ikonları ekleneceği zaman buralar aktif olacak -->
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" aria-label="E-posta"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+        <h2>Bize Ulaşın</h2>
+        <p>Projelerimiz, iş birliği ve bilgi talepleriniz için e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.</p>
+        <a href="mailto:info@demirozflagrotech.com" class="email-btn" id="emailLink">
+            <i class="fa-solid fa-envelope"></i> E-Posta Gönder
+        </a>
     </section>
 
     <footer>
         <p>&copy; 2026 Demiröz Teknoloji. Tüm hakları saklıdır.</p>
     </footer>
 
-    <!-- MODAL (AÇILIR PENCERE) ALTYAPISI -->
+    <!-- MODAL -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal-content">
             <i class="fa-solid fa-xmark modal-close" id="closeModal"></i>
@@ -392,37 +407,45 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Modal Elementleri
+        // Modal Mantığı
         const modal = document.getElementById('projectModal');
         const closeModal = document.getElementById('closeModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDesc = document.getElementById('modalDesc');
         const modalButtons = document.querySelectorAll('.show-modal');
 
-        // Butonlara tıklanınca Modalı Aç
         modalButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // HTML içine gömdüğümüz data özelliklerini çekiyoruz
-                const title = button.getAttribute('data-title');
-                const desc = button.getAttribute('data-desc');
-                
-                modalTitle.textContent = title;
-                modalDesc.textContent = desc;
-                
+                modalTitle.textContent = button.getAttribute('data-title');
+                modalDesc.textContent = button.getAttribute('data-desc');
                 modal.classList.add('active');
             });
         });
 
-        // X butonuna basınca Modalı Kapat
         closeModal.addEventListener('click', () => {
             modal.classList.remove('active');
         });
 
-        // Pencerenin dışına tıklayınca Modalı Kapat
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
             }
+        });
+
+        // /# Sıçrama (Jumping) Engelleyici & Yumuşak Kaydırma
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
         });
     </script>
 </body>
