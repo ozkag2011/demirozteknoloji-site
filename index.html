@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 <div id="bar"></div><div id="glow"></div>
@@ -26,6 +26,37 @@
 
 <main>
 <section class="hero" id="home">
+  <!-- GEÇİCİ ARKA PLAN: 5 sn'lik drone animasyonu. Gerçek video/GIF gelince bu <div class="fly"> bloğunu silin ya da içine <img src="assets/drone.gif" alt=""> koyun. -->
+  <div class="fly" aria-hidden="true">
+    <svg viewBox="0 0 960 540" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#02050d"/><stop offset="1" stop-color="#0b2a66"/></linearGradient>
+        <pattern id="gr" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#2f7bff" stroke-opacity=".1"/></pattern>
+      </defs>
+      <rect width="960" height="540" fill="url(#sk)"/><rect width="960" height="540" fill="url(#gr)"/>
+      <g fill="#fff" fill-opacity=".09">
+        <ellipse cx="300" cy="110" rx="110" ry="14"><animateTransform attributeName="transform" type="translate" from="0 0" to="-400 0" dur="12s" repeatCount="indefinite"/></ellipse>
+        <ellipse cx="780" cy="190" rx="140" ry="16"><animateTransform attributeName="transform" type="translate" from="0 0" to="-500 0" dur="12s" repeatCount="indefinite"/></ellipse>
+        <ellipse cx="980" cy="90" rx="90" ry="12"><animateTransform attributeName="transform" type="translate" from="0 0" to="-560 0" dur="12s" repeatCount="indefinite"/></ellipse>
+      </g>
+      <polygon points="0,540 0,430 120,380 240,440 380,360 520,430 660,370 800,440 960,385 960,540" fill="#050c1c"/>
+      <polygon points="0,540 0,490 160,460 320,495 500,455 680,497 840,462 960,488 960,540" fill="#000"/>
+      <path d="M700 140C860 140 930 230 850 300C770 370 600 370 530 300C460 230 540 140 700 140Z" fill="none" stroke="#6aa8ff" stroke-opacity=".45" stroke-dasharray="5 9"/>
+      <g>
+        <animateMotion dur="5s" repeatCount="indefinite" path="M700 140C860 140 930 230 850 300C770 370 600 370 530 300C460 230 540 140 700 140Z"/>
+        <g transform="scale(1.5)">
+          <animateTransform attributeName="transform" type="rotate" values="-7;7;-7" dur="2.5s" repeatCount="indefinite" additive="sum"/>
+          <line x1="-34" y1="0" x2="34" y2="0" stroke="#2f7bff" stroke-width="4" stroke-linecap="round"/>
+          <rect x="-14" y="-8" width="28" height="15" rx="6" fill="#0a1020" stroke="#6aa8ff" stroke-width="1.5"/>
+          <circle cx="0" cy="9" r="4" fill="#6aa8ff"/>
+          <circle cx="0" cy="-8" r="2" fill="#fff"><animate attributeName="opacity" values="1;.1;1" dur=".8s" repeatCount="indefinite"/></circle>
+          <circle cx="-34" cy="0" r="4" fill="#6aa8ff"/><circle cx="34" cy="0" r="4" fill="#6aa8ff"/>
+          <ellipse cx="-34" cy="-6" rx="18" ry="2.5" fill="#6aa8ff" fill-opacity=".6"><animate attributeName="rx" values="18;5;18" dur=".14s" repeatCount="indefinite"/></ellipse>
+          <ellipse cx="34" cy="-6" rx="18" ry="2.5" fill="#6aa8ff" fill-opacity=".6"><animate attributeName="rx" values="5;18;5" dur=".14s" repeatCount="indefinite"/></ellipse>
+        </g>
+      </g>
+    </svg>
+  </div>
   <video autoplay muted loop playsinline preload="metadata" poster="assets/drone-poster.jpg" aria-hidden="true"><source src="assets/drone.mp4" type="video/mp4"></video>
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="shade"></div>
@@ -35,38 +66,7 @@
     <p class="sub">İHA, robot, akıllı tarım ve iş güvenliği: tasarlıyor, kodluyor ve sahada deniyoruz.</p>
     <div class="btns"><a class="btn primary" href="#takimlar">Takımları keşfet</a><a class="btn" href="#iletisim">Bize ulaş</a></div>
     </div>
-    <!-- GEÇİCİ: 5 sn'lik drone animasyonu. Sonra <figure> içindeki <svg> yerine <img src="assets/drone.gif"> veya <video> konabilir. -->
-    <figure class="fly" aria-hidden="true">
-      <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#02050d"/><stop offset="1" stop-color="#0b2a66"/></linearGradient>
-          <pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#2f7bff" stroke-opacity=".12"/></pattern>
-        </defs>
-        <rect width="480" height="360" fill="url(#sk)"/><rect width="480" height="360" fill="url(#gr)"/>
-        <g fill="#fff" fill-opacity=".08">
-          <ellipse cx="90" cy="70" rx="60" ry="9"><animateTransform attributeName="transform" type="translate" from="0 0" to="-200 0" dur="10s" repeatCount="indefinite"/></ellipse>
-          <ellipse cx="400" cy="130" rx="80" ry="10"><animateTransform attributeName="transform" type="translate" from="0 0" to="-260 0" dur="10s" repeatCount="indefinite"/></ellipse>
-          <ellipse cx="520" cy="50" rx="50" ry="8"><animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="10s" repeatCount="indefinite"/></ellipse>
-        </g>
-        <polygon points="0,360 0,285 60,250 120,290 190,235 260,285 330,245 400,290 480,255 480,360" fill="#050c1c"/>
-        <polygon points="0,360 0,320 80,300 160,325 250,298 340,326 420,305 480,322 480,360" fill="#000"/>
-        <path d="M240 90C360 90 420 170 360 230C300 290 180 290 120 230C60 170 120 90 240 90Z" fill="none" stroke="#6aa8ff" stroke-opacity=".5" stroke-dasharray="4 7"/>
-        <g>
-          <animateMotion dur="5s" repeatCount="indefinite" path="M240 90C360 90 420 170 360 230C300 290 180 290 120 230C60 170 120 90 240 90Z"/>
-          <g transform="scale(1.35)">
-            <animateTransform attributeName="transform" type="rotate" values="-7;7;-7" dur="2.5s" repeatCount="indefinite" additive="sum"/>
-            <line x1="-34" y1="0" x2="34" y2="0" stroke="#2f7bff" stroke-width="4" stroke-linecap="round"/>
-            <rect x="-14" y="-8" width="28" height="15" rx="6" fill="#0a1020" stroke="#6aa8ff" stroke-width="1.5"/>
-            <circle cx="0" cy="9" r="4" fill="#6aa8ff"/>
-            <circle cx="0" cy="-8" r="2" fill="#fff"><animate attributeName="opacity" values="1;.1;1" dur=".8s" repeatCount="indefinite"/></circle>
-            <circle cx="-34" cy="0" r="4" fill="#6aa8ff"/><circle cx="34" cy="0" r="4" fill="#6aa8ff"/>
-            <ellipse cx="-34" cy="-6" rx="18" ry="2.5" fill="#6aa8ff" fill-opacity=".6"><animate attributeName="rx" values="18;5;18" dur=".14s" repeatCount="indefinite"/></ellipse>
-            <ellipse cx="34" cy="-6" rx="18" ry="2.5" fill="#6aa8ff" fill-opacity=".6"><animate attributeName="rx" values="5;18;5" dur=".14s" repeatCount="indefinite"/></ellipse>
-          </g>
-        </g>
-      </svg>
-      <figcaption class="mono">Otonom uçuş · canlı</figcaption>
-    </figure>
+    
   </div>
   <dl class="stats">
     <div><dt class="mono">Takım</dt><dd><b data-n="5">0</b></dd></div>
