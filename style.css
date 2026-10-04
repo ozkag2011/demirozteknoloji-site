@@ -65,11 +65,6 @@ h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:20ch}
 .fly{position:absolute;inset:0;opacity:.9}
 .fly svg{width:100%;height:100%;display:block}
 
-/* şerit */
-.marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--ln);background:var(--bk2);padding:16px 0}
-#mq{display:inline-block;font:700 clamp(1.4rem,3vw,2.2rem) var(--hd);color:transparent;-webkit-text-stroke:1px var(--bl);animation:mq 40s linear infinite}
-@keyframes mq{to{transform:translateX(-50%)}}
-
 /* bölümler */
 .sec{position:relative;padding:120px 0;background:var(--bk)}
 .sec.alt{background:linear-gradient(180deg,var(--bk),var(--bk3) 50%,var(--bk))}
@@ -147,7 +142,7 @@ footer{padding:30px 24px 24px;text-align:center;color:var(--mu);font-size:.9rem;
   .hero-in{padding-bottom:230px}.sec{padding:80px 0}
 }
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}#mq{animation:none}.hero video{display:none}
+  html{scroll-behavior:auto}.hero video{display:none}
   .ln>span,.kicker,.sub,.btns,.stats{animation:none;transform:none}
   .rv{opacity:1;transform:none;filter:none;transition:none}
 }
